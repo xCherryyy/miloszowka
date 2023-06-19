@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES5",
+    "sourceMap": true,
+    "outDir": "./dist/js",
+    "strict": true
+  },
+  "include": [
+    "./src/ts/**/*.ts"
+, "src/ts/slick.ts"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

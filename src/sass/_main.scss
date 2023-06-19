@@ -1,0 +1,331 @@
+@use 'colors' as c;
+
+.aboutus {
+	margin: 0 1.5rem;
+	font-size: 1.6rem;
+	&__text-box {
+		text-align: justify;
+	}
+
+	&__heading {
+		margin: 1em 0;
+		color: c.$orange;
+	}
+
+	&__img {
+		margin-top: 1em;
+		width: 100%;
+	}
+}
+
+.offer {
+	margin: 0 1.5em;
+	&__box {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		overflow: auto;
+		gap: 3.5em;
+
+		&-title {
+			padding: 0 1em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 232px;
+			height: 80px;
+			text-align: center;
+			font-size: 2rem;
+			margin-bottom: 0.5em;
+
+			&--orange {
+				margin: 3.5em 0 1.5em;
+				color: c.$orange;
+			}
+		}
+
+		&-price {
+			color: c.$orange;
+			font-size: 2rem;
+			text-align: center;
+		}
+
+		&-description {
+			margin: 0 1.5em;
+			color: c.$white;
+			font-size: 2rem;
+			text-align: justify;
+			overflow: auto;
+			font-size: 1.8rem;
+		}
+	}
+
+	&__box-item {
+		position: relative;
+		padding: 4em 1.5em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		border: 1px solid c.$orange;
+		border-radius: 15px;
+		width: 73%;
+		&-img {
+			height: 300px;
+			margin-bottom: 2em;
+		}
+
+		&-text {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			background-color: c.$lighter-black;
+			border-radius: 15px;
+			text-align: center;
+			clip-path: circle(0 at 100% 0);
+			transition: clip-path 0.8s;
+
+			&--active {
+				clip-path: circle(150% at 100% 0);
+			}
+		}
+
+		&-see-more {
+			padding: 0.5em 1em;
+			position: absolute;
+			right: 5px;
+			top: 10px;
+			background: none;
+			z-index: 1;
+			img {
+				height: 3rem;
+				width: auto;
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 10%;
+				width: 80%;
+				height: 2px;
+				background-color: c.$orange;
+				transform-origin: center;
+				transform: scaleX(0);
+				transition: transform 0.3s;
+			}
+			&:hover.offer__box-item-see-more::after {
+				transform: scaleX(1);
+			}
+		}
+	}
+}
+
+.gallery {
+	margin: 1.5em;
+	&__box {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__main-img {
+		text-align: center;
+		position: relative;
+		margin-bottom: 3em;
+		width: 100%;
+	}
+	&__large-img {
+		img {
+			height: 55vh;
+			width: 100%;
+			object-fit: cover;
+			object-position: center;
+			border-radius: 15px;
+		}
+	}
+
+	&__photos-thumbnails {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		img {
+			margin: 1em;
+			height: 70px;
+			width: 30%;
+			background-size: cover;
+			background-position: center;
+			border-radius: 8px;
+			&:first-child {
+				margin-left: 0em;
+			}
+
+			&:last-child {
+				margin-right: 0em;
+			}
+		}
+	}
+	&__img-btn {
+		padding: 0.2em;
+		position: absolute;
+		top: 50%;
+		left: 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transform: translateY(-50%);
+		border-radius: 50%;
+		background-color: c.$white-alpha;
+		display: none;
+		img {
+			stroke: c.$bg-color;
+		}
+
+		&--right {
+			left: unset;
+			right: 5px;
+		}
+	}
+}
+
+.contact {
+	&__items {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	&__item {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		width: 80%;
+		margin-bottom: 4em;
+		img {
+			align-self: start;
+			margin-right: 2em;
+		}
+	}
+
+	&__heading {
+		font-size: 2.4rem;
+		margin-bottom: 0.5em;
+	}
+
+	&__info {
+		font-size: 1.8rem;
+	}
+
+	&__map {
+		margin-top: 2em;
+	}
+}
+
+@media (min-width: 768px) {
+	.offer {
+		&__box {
+			overflow: unset;
+			justify-content: center;
+			flex-wrap: wrap;
+			&-title {
+				font-size: 2.2rem;
+				width: unset;
+			}
+
+			&-price {
+				font-size: 2.3rem;
+			}
+		}
+		&__box-item {
+			width: 300px;
+			&-img {
+				height: 350px;
+			}
+		}
+	}
+
+	.gallery {
+		&__main-img {
+			width: auto;
+			&__large-img {
+				height: 600px;
+				width: auto;
+			}
+		}
+	}
+}
+@media (min-width: 992px) {
+	.aboutus {
+		&__box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 2em;
+		}
+
+		&__img {
+			border-radius: 20px;
+		}
+	}
+
+	.offer {
+		&__box {
+			justify-content: center;
+
+			&-title {
+				font-size: 2.2rem;
+			}
+
+			&-price {
+				font-size: 2.3rem;
+			}
+		}
+	}
+
+	.gallery {
+		&__main-img {
+			width: 70%;
+		}
+
+		&__photos-thumbnails {
+			img {
+				height: 20vh;
+				width: 20vw;
+				object-fit: cover;
+				border-radius: 15px;
+			}
+		}
+	}
+
+	.contact {
+		&__items {
+			margin: 6em 0;
+			justify-content: space-evenly;
+			flex-direction: row;
+		}
+
+		&__item {
+			width: unset;
+			margin-bottom: 0;
+			margin-inline: 1.5em;
+		}
+		&__heading {
+			white-space: nowrap;
+		}
+	}
+}
+
+@media (min-width: 1400px) {
+	.aboutus {
+		font-size: 1.8rem;
+
+		&__heading {
+			font-size: 2.2rem;
+		}
+	}
+}

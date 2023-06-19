@@ -1,0 +1,30 @@
+@use 'colors' as c;
+
+.error {
+    height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	font-size: 3rem;
+
+	img {
+		width: 50%;
+	}
+
+	&__heading {
+		font-size: 5rem;
+	}
+
+	&__link {
+		color: c.$orange;
+		border-bottom: 2px solid c.$orange;
+	}
+}
+
+@media (min-width: 768px) {
+	.error{
+		font-size: 4rem;
+	}
+}

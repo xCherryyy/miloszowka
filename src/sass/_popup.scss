@@ -1,0 +1,71 @@
+@use 'colors' as c;
+
+.popup__active body{
+	overflow-y: hidden;
+}
+.popup {
+    padding: 3em 1.5em 5em;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	background-color: c.$bg-color;
+	&__shadow {
+		display: none;
+		position: sticky;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 50%);
+		z-index: 1000;
+		position: fixed;
+	}
+
+	p {
+		font-size: 2rem;
+	}
+
+	&__btns {
+		margin: 2em 0;
+	}
+
+	&__btn {
+		padding: 1em 0;
+		border-radius: 8px;
+		background-color: c.$white;
+		font-size: 1.8rem;
+		width: calc(50% - 3em);
+		border: 1px solid transparent;
+		color: c.$bg-color;
+		transition: color 0.3s, background-color 0.3s, border 0.3s;
+
+		&:hover,
+		&:focus {
+			background-color: c.$lighter-black;
+			color: c.$white;
+			border: 1px solid c.$orange;
+		}
+		&--orange {
+			margin-right: 2em;
+			background-color: c.$orange;
+			color: c.$white;
+
+			&:hover,
+			&:focus {
+				color: c.$orange;
+			}
+		}
+	}
+
+	&__msg {
+		display: none;
+		margin-top: 2em;
+		color: c.$orange;
+
+		a {
+			color: c.$orange;
+			border-bottom: 2px solid c.$orange;
+		}
+	}
+}
